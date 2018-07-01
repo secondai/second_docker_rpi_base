@@ -15,7 +15,7 @@ RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg && \
    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN sudo apt-get update
-RUN sudo apt-get install -y netcat wget curl bluetooth bluez libbluetooth-dev libudev-dev python python-pip python-dev build-essential git alsa-base alsa-utils festival festvox-kallpc16k sox libsox-fmt-all swig3.0 python-pyaudio python3-pyaudio libatlas-base-dev libmagic-dev
+RUN sudo apt-get install -y netcat wget curl bluetooth bluez libbluetooth-dev libudev-dev python python-pip python-dev build-essential git alsa-base alsa-utils festival festvox-kallpc16k sox libsox-fmt-all swig3.0 python-pyaudio python3-pyaudio libatlas-base-dev libmagic-dev libasound2-dev
 
 # python bindings for snowboy (hotword detection) 
 RUN pip install pyaudio
