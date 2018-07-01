@@ -23,7 +23,7 @@ RUN pip install pyaudio
 # mopidy (python music player)
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add -
 RUN sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/stretch.list
-sudo apt-get update
+RUN sudo apt-get update
 RUN sudo apt-get install -y mopidy mopidy-spotify
 
 #RUN wget https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-armv6l.tar.gz \
