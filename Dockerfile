@@ -11,12 +11,15 @@ FROM resin/rpi-raspbian
 # Make "source" work by replacing shell with bash 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+# mopidy (python music player)
+RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add -
+RUN sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/stretch.list
 
 RUN apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg && \
    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN sudo apt-get update
-RUN sudo apt-get install -y netcat wget curl bluetooth bluez libbluetooth-dev libudev-dev python python-pip python-dev build-essential git alsa-base alsa-utils festival festvox-kallpc16k sox libsox-fmt-all swig3.0 python-pyaudio python3-pyaudio libatlas-base-dev libmagic-dev
+RUN sudo apt-get install -y netcat wget curl bluetooth bluez libbluetooth-dev libudev-dev python python-pip python-dev build-essential git alsa-base alsa-utils festival festvox-kallpc16k sox libsox-fmt-all swig3.0 python-pyaudio python3-pyaudio libatlas-base-dev libmagic-dev mopidy mopidy-spotify
 
 # python bindings for snowboy (hotword detection) 
 RUN pip install pyaudio
